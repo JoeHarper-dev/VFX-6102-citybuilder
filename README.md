@@ -11,7 +11,7 @@
  ### Step one
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true" width="500">\
  right click in the toolbar and click new tool <br>
- &nbsp;
+ &nbsp; \
  &nbsp;
  
  </p>
@@ -20,8 +20,8 @@
   
  ### Step two
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step02.png?raw=true" width="500">\
- Fill in the Name and Label of the tool, add an icon aswell if you want :D
- &nbsp;
+ Fill in the Name and Label of the tool, add an icon aswell if you want :D <br>
+ &nbsp; \
  &nbsp;
  
  </p>
@@ -30,8 +30,8 @@
  
 ### Step three
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true" width="500">\
-Press the script tab, then paste the script into the box
-&nbsp;
+Press the script tab, then paste the script into the box <br>
+&nbsp; \
 &nbsp;
 
 </p>
@@ -40,8 +40,8 @@ Press the script tab, then paste the script into the box
  
 ### Step four
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step04.png?raw=true" width="500">\
-Press the accpet button
-&nbsp;
+Press the accpet button <br>
+&nbsp; \
 &nbsp;
 
 </p>
