@@ -29,7 +29,7 @@ Press the script tab, then paste the script into the box
 ### Step four
 Press the accpet button
 <br>
-<img src"
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step04.png?raw=true" width="500">
 
 </details>
 
