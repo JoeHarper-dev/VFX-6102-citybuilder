@@ -68,7 +68,9 @@ Fill in the window with the desired parameters <br>
 <!-- Code -->
 <details align="center">
 <summary>Code</summary>
-    
+
+<div align="left">
+ 
 ```python
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -239,7 +241,7 @@ def buildProject(self):
 dialog = cityBuilder()
 dialog.show()
 ```
-
+</div>
 
 </details>
 
