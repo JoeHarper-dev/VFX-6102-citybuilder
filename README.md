@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/aae613b2-70cd-4ff7-a48e-4fc863877c59)
 # City Builder
 
 
@@ -51,6 +51,19 @@
 <!-- Usage -->
 <details align="center">
 <summary>Usage</summary>
+
+### Step One
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/Usage/usageOne.png?raw=true" width="500">\
+Press the tool from the tool shelf <br>
+&nbsp;
+##
+
+### Step two
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/Usage/usageTwo.png?raw=true" width="500">\
+Fill in the window with the desired parameters <br>
+&nbsp;
+##
+ 
 </details>
 
 <!-- Code -->
