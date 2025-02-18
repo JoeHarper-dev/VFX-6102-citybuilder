@@ -194,7 +194,8 @@ dialog.show()
 
 <details align="center">
  <summary>Installation</summary>
-
+&nbsp; <br>
+    
  <p align="left">
   
  &nbsp; 
