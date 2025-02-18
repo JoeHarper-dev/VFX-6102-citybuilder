@@ -33,7 +33,7 @@
  
  ### Step three
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true" width="500">\
- Press the script tab, then paste the script into the box <br>
+ Press the script tab, then paste the [script](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/cityBuilder_v001.py) into the box <br>
  &nbsp; 
  ##
 
