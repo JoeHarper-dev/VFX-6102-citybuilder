@@ -15,8 +15,9 @@
 
 <details align="center">
 <summary>Code</summary>
+    
 ```python
-    from PySide2 import QtCore
+from PySide2 import QtCore
 from PySide2 import QtWidgets
 import hou
 import json
@@ -183,7 +184,9 @@ def buildProject(self):
         print('hello world')
             
 dialog = cityBuilder()
-dialog.show()```
+dialog.show()
+```
+
 
 </details>
 
