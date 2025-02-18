@@ -7,6 +7,12 @@
 
 ![citescape catppuccin](https://github.com/JoeHarper-tech/VFX-6102-citybuilder/blob/main/pictures/cat_evening-sky.png?raw=true)
 
+<!-- Title -->
+
+## A tool for sideFX Houdini that creates a template city
+&nbsp; <br>
+
+
 <details align="center">
     <summary>Code</summary>
     ```python
@@ -182,11 +188,6 @@ dialog.show()
 
 </details>
 
-
-<!-- Title -->
-
-## A tool for sideFX Houdini that creates a template city
-&nbsp; <br>
 
 
 <!-- Installation -->
