@@ -9,9 +9,12 @@
 
  ### Step one
  right click in the toolbar and click new tool
-
- 
  ![Step one](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true)
+
+ ### Step two
+ Fill in the Name and Label of the tool, add an icon aswell if you want :D
+ ![Step two](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step02.png?raw=true)
+ 
 </details>
 
 
