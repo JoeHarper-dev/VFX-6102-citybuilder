@@ -249,6 +249,6 @@ dialog.show()
  &nbsp; <br>
  
  <p align="center">
-  Created by kuisux <br>
-<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150">
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150"> <br>
+ <sub>created by kuisux</sub>
  </p>
