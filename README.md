@@ -6,7 +6,7 @@
 <details align="center">
  <summary>Installation</summary>
 
- <p>
+ <p align="left">
   
  &nbsp; 
  ### Step one
