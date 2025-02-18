@@ -50,16 +50,11 @@
 </details>
 
 <!-- Usage -->
-
-&nbsp; <br>
-
 <details align="center">
 <summary>Usage</summary>
 </details>
 
 <!-- Code -->
-
-&nbsp; <br>
 <details align="center">
 <summary>Code</summary>
     
