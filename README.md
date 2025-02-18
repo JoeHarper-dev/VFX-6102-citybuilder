@@ -4,5 +4,7 @@
 
 > [!WARNING]
 > this is a university project and probobly not safe for industry use
- 
-<img align="right" src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="200">
+
+ <p align="center">
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="200">
+ </p>
