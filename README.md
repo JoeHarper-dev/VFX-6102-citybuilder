@@ -38,7 +38,9 @@
 </p>
 
 </details>
-
+&nbsp; <br>
+<details align="center">
+<summary>Usage</summary>
 
 > [!WARNING]
 > this is a university project and probobly not safe for industry use
