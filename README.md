@@ -12,14 +12,6 @@
 ## A tool for sideFX Houdini that creates a template city
 &nbsp; <br>
 
-<!-- Warning -->
-
-> [!WARNING]
-> this is a university project and probobly not safe for industry use
-&nbsp; <br>
-&nbsp; <br>
-
-
 
 <!-- Installation -->
 <details align="center">
@@ -240,7 +232,11 @@ dialog.show()
 </details>
 
 
- 
+<!-- Warning -->
+ &nbsp; <br>
+> [!WARNING]
+> this is a university project and probobly not safe for industry use
+
 
 
 <!-- Logo -->
