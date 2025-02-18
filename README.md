@@ -1,13 +1,21 @@
-<p align="center">
- 
+
 # City Builder
 
-</p>
+
+
+<!-- Image -->
 
 ![citescape catppuccin](https://github.com/JoeHarper-tech/VFX-6102-citybuilder/blob/main/pictures/cat_evening-sky.png?raw=true)
+
+
+
+<!-- Title -->
+
 ## A tool for sideFX Houdini that creates a template city
 &nbsp; <br>
 
+
+<!-- Installation -->
 
 <details align="center">
  <summary>Installation</summary>
@@ -42,6 +50,9 @@
 
 </p>
 
+
+<!-- Usage -->
+
 </details>
 &nbsp; <br>
 
@@ -49,8 +60,16 @@
 <summary>Usage</summary>
 </details>
 
+
+<!-- Footer -->
+
+
 > [!WARNING]
 > this is a university project and probobly not safe for industry use
+
+
+<!-- Logo -->
+
 
  <p align="center">
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150">
