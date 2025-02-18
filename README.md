@@ -17,7 +17,7 @@
 
 ### Step three
 Press the script tab, then paste the script into the box
-![Step three](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true)
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true">
  
 </details>
 
