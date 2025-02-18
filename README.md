@@ -248,7 +248,7 @@ dialog.show()
  &nbsp; <br>
  &nbsp; <br>
  
- <p align="center">
+ <p style ="text-align:center"">
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150"> <br>
 
 <div style="text-align:center">
