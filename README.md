@@ -248,15 +248,10 @@ dialog.show()
  &nbsp; <br>
  &nbsp; <br>
  
- <p align="center">
+<div align="center">
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150"> <br>
 
-<p align="center">
- 
- <sub>[created by kuisux](https://www.google.com)</sub>
- 
-</p>
-
- </p>
+<sub>[created by kuisux](https://www.google.com)</sub>
+</div>
 
 
