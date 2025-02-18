@@ -73,7 +73,6 @@
  &nbsp; <br>
  &nbsp; <br>
  &nbsp; <br>
- &nbsp; <br>
  
  <p align="center">
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150">
