@@ -11,7 +11,7 @@
  ### Step one
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true" width="500">\
  right click in the toolbar and click new tool <br>
- 
+ ##
  </p>
 
  <p>
