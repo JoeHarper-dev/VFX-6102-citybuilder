@@ -251,7 +251,7 @@ dialog.show()
 <div align="center">
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="150"> <br>
 
-<sub>[created by kuisux](https://www.google.com)</sub>
+<sub>[created by kuisux](https://github.com/kuisux)</sub>
 </div>
 
 
