@@ -7,7 +7,9 @@
 
 ![citescape catppuccin](https://github.com/JoeHarper-tech/VFX-6102-citybuilder/blob/main/pictures/cat_evening-sky.png?raw=true)
 
-```python
+<details align="center">
+    <summary>Code</summary>
+    ```python
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -179,6 +181,7 @@ dialog = cityBuilder()
 dialog.show()
 
 ```
+</details>
 
 
 <!-- Title -->
