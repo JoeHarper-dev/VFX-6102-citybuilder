@@ -180,7 +180,6 @@ def buildProject(self):
 dialog = cityBuilder()
 dialog.show()
 
-```
 </details>
 
 
