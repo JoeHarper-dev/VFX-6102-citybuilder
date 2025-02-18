@@ -10,14 +10,16 @@
  ### Step one
  right click in the toolbar and click new tool
  ![Step one](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true)
+<br>
 
  ### Step two
  Fill in the Name and Label of the tool, add an icon aswell if you want :D
  ![Step two](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step02.png?raw=true)
+<br
 
 ### Step three
 Press the script tab, then paste the script into the box
-<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true">
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step03.png?raw=true" width="750">
  
 </details>
 
