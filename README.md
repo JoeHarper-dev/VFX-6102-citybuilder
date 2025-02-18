@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/aae613b2-70cd-4ff7-a48e-4fc863877c59)
 # City Builder
 
 
