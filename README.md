@@ -224,11 +224,10 @@ dialog.show()
  ##
 
 </p>
-
+</details>
 
 <!-- Usage -->
 
-</details>
 &nbsp; <br>
 
 <details align="center">
