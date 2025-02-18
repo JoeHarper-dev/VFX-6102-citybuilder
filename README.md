@@ -9,10 +9,11 @@
 
  ### Step one
  right click in the toolbar and click new tool
- </p>
+
  
  ![Step one](https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true)
 </details>
+ </p>
 
 > [!WARNING]
 > this is a university project and probobly not safe for industry use
