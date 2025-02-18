@@ -253,7 +253,7 @@ dialog.show()
 
 <div style="text-align:center">
  
- <sub>[created by kuisux](https://www.google.com)</sub>
+ <sub style ="text-align:center">[created by kuisux](https://www.google.com)</sub>
  
 </div>
 
