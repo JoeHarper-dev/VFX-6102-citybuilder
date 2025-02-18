@@ -6,5 +6,5 @@
 > this is a university project and probobly not safe for industry use
 
  <p align="center">
-<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="200">
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/KuiLogo.png?raw=true" width="100">
  </p>
