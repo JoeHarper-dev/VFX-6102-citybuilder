@@ -72,6 +72,7 @@ Fill in the window with the desired parameters <br>
 <div align="left">
  
 ```python
+from re import X
 #-----------------------------------------------------------------------------------------------#
 #         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                      #
 #        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.        #
@@ -219,35 +220,121 @@ class cityBuilder(QtWidgets.QWidget):
         self.vBox.addLayout(hboxSnapMenu)
 
 
-        def ddlCheckBox(self, toggle):
-            if toggle == QtCore.Qt.Checked:
-                self.DdlSnap.setDisabled(False)
-            else:
-                self.DdlSnap.setDisabled(True)
 #------------------------------------------------------------------------------------------------------------------
 #Presets
 
 #buttons
         hboxPresets = QtWidgets.QHBoxLayout()
-        self.loadPreset = QtWidgets.QPushButton('Load Preset', self)
-        self.savePreset = QtWidgets.QPushButton('Save Preset', self)
-        hboxPresets.addWidget(self.loadPreset)
-        hboxPresets.addWidget(self.savePreset)
+        self.loadPresetBtn = QtWidgets.QPushButton('Load Preset', self)
+        self.savePresetBtn = QtWidgets.QPushButton('Save Preset', self)
+        hboxPresets.addWidget(self.loadPresetBtn)
+        hboxPresets.addWidget(self.savePresetBtn)
         self.vBox.addLayout(hboxPresets)
 
 
+#-------------------------------------------------------------------------------------------------------------------
+#BuildProject
+
+        hboxBuildProject = QtWidgets.QHBoxLayout()
+        self.buildProjectBtn = QtWidgets.QPushButton("Build", self)
+        self.buildProjectBtn.clicked.connect(self.buildProject)
+        hboxBuildProject.addWidget(self.buildProjectBtn)
+        self.vBox.addLayout(hboxBuildProject)
+
+
+#-------------------------------------------------------------------------------------------------------------------
+#Defines
         self.setLayout(self.vBox)
 
-def onStateChanged(self):
-        if self.checkBoxSnap.isChecked():
-             self.DdlSnap.setItemDisabled(False)
-        else:
-                self.DdlSnap.setItemDisabled(True)
-                
-        # end def
-def buildProject(self):
-        print('hello world')
+    def textHasChangedBuildingDensity(self):
+        buildingDensity = self.textInputBuildingDensity.text()
+
+    def textHasChangedMaxFloors(self):
+        maxFloors = self.textInputMaxFloors.text()
+
+    def textHasChangedMinFloors(self):
+        minFloors = self.TextInputMinFloors.text()
+
+    def textHasChangedLocationX(self):
+        locationX = self.textInputLocationX.text()
+
+    def textHasChangedLocationY(self):
+        locationY = self.textInputLocationY.text()
+
+    def textHasChangedLocationZ(self):
+        locationZ = self.textInputLocationZ.text()
+    
+    def stateHasChangedSnapObj(self):
+        snapObj = self.DdlSnap
+
+    def stateHasChangedLoadPreset(self):
+        loadPreset = self.loadPresetBtn
+
+    def stateHasChangedSavePreset(self):
+        savePreset =  self.SavePresetBtn
+
+    def buildProject(self):
+#-------------------------------------------------------------------------------------------------------------------
+#Main Function
             
+        #Variables
+
+        buildingDensity = self.textInputBuildingDensity.text()
+        maxFloors = self.textInputMaxFloors.text()
+        minFloors = self.TextInputMinFloors.text()
+        locationX = self.textInputLocationX.text()
+        locationY = self.textInputLocationY.text()
+        locationZ = self.textInputLocationZ.text()
+        snapObj = self.DdlSnap
+        loadPreset = self.loadPresetBtn
+        savePreset =  self.savePresetBtn
+        timesran = 0
+        lowerFloorHeight = 2.7
+        heigherFloorHeight = 3.5
+            
+        myObj = hou.node('/obj')
+        geo = myObj.createNode("geo", 'city')
+        myGeo = hou.node('/obj/city')
+        subnet = myGeo.createNode("subnet", 'city')
+        mySub = hou.node('/obj/city/city')
+        merge = mySub.createNode("merge", 'merge1')
+
+
+
+        for i in range(int(buildingDensity)):
+            lowerTranslateX = random.randint(-100, 100)
+            lowerTranslateZ  = random.randint(-100, 100)
+
+
+
+            timesran += 1
+            box = mySub.createNode("box", f'building{timesran}')
+            transform = mySub.createNode("xform", f'tranform{timesran}')
+            transform.setInput(0, box)
+            randomFloors = random.randint((int(minFloors)), (int(maxFloors)))
+            randomFloorHeight = random.uniform(lowerFloorHeight, heigherFloorHeight)
+            boxHeight = randomFloorHeight * randomFloors
+
+
+            boxTranslateX = transform.parm('tx')
+            boxTranslateY = transform.parm('ty')
+            boxTranslateZ = transform.parm('tz')
+            boxHeightY = transform.parm('sy')
+            boxWidthX = transform.parm('sx')
+            boxWidthZ = transform.parm('sz')
+
+            boxTranslateX.set(int(locationX) + lowerTranslateX)
+            boxTranslateZ.set(int(locationY) + lowerTranslateZ)
+            boxTranslateY.set(int(locationY) + (int(boxHeight)/2))
+            boxHeightY.set(boxHeight)
+            boxWidthX.set(random.randint(8, 12))
+            boxWidthZ.set(random.randint(8, 12))
+
+            merge.setInput(timesran, transform)
+            box.setInput(0, mySub.indirectInputs()[0])
+            print("test")
+            print(randomFloors)
+
 dialog = cityBuilder()
 dialog.show()
 '''
@@ -259,8 +346,7 @@ dialog.show()
  _ | |   | || | 
 | || | _ | __ | 
  \__/ (_)|_||_| 
-
-'''               
+'''              
 ```
 </div>
 
