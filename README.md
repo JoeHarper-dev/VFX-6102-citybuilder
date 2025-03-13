@@ -352,6 +352,10 @@ dialog.show()
 
 </details>
 
+##To-Do
+..* JSON Integration for saving and exporting presets
+..* Collision Detection
+..* Snapping to object
 
 <!-- Warning -->
  &nbsp; <br>
