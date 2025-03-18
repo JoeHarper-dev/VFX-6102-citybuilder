@@ -215,6 +215,7 @@ class cityBuilder(QtWidgets.QWidget):
         loadPreset = self.loadPresetBtn
         savePreset =  self.savePresetBtn
         timesran = 0
+        timesran2 = 0
         lowerFloorHeight = 2.7
         heigherFloorHeight = 3.5
             
@@ -228,12 +229,12 @@ class cityBuilder(QtWidgets.QWidget):
 
 
         for i in range(int(buildingDensity)):
-            lowerTranslateX = random.randint(-100, 100)
-            lowerTranslateZ  = random.randint(-100, 100)
+            f'lowerTranslateX{timesran2}' == random.randint(-100, 100)
+            f'lowerTranslateZ{timesran2}'  == random.randint(-100, 100)
+            f'translate{timesran2}' == [f'lowerTranslateX{timesran2}', f'lowerTranslateZ{timesran2}']
 
 
 
-            timesran += 1
             box = mySub.createNode("box", f'building{timesran}')
             transform = mySub.createNode("xform", f'tranform{timesran}')
             transform.setInput(0, box)
@@ -257,9 +258,21 @@ class cityBuilder(QtWidgets.QWidget):
             boxWidthZ.set(random.randint(8, 12))
 
             merge.setInput(timesran, transform)
-            box.setInput(0, mySub.indirectInputs()[0])
+            box.setInput(0, mySub.indirectInFputs()[0])
             print("test")
             print(randomFloors)
+
+
+ #Collision detection          
+            buildingLoop = 1
+            while buildingLoop > timesran:
+                buildingLoop + 1              
+                for i in range(int(timesran)):
+                        timesran2 -= 1
+                        if abs(f'lowerTranslateX{timesran2}' - f'lowerTranslateX{timesran}') >= 5 and abs(f'lowerTranslateZ{timesran2}' - f'lowerTranslateZ{timesran}') >= 5:
+                                break
+                                buildingLoop = 1
+
 
 dialog = cityBuilder()
 dialog.show()
