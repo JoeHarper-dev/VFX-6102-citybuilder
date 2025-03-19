@@ -73,9 +73,9 @@ Fill in the window with the desired parameters <br>
 
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif" width="500">\
 
-<img src"https://kui.is-freaky.lol/08O1M.png" width="500">\
+<img src"https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/1K1BP.png" width="500">\
 
-<img src"https://kui.is-freaky.lol/0Bnoj.png" width="500">\
+<img src"https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/0Bnoj.png" width="500">\
 
 </p>
 
