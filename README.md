@@ -68,14 +68,18 @@ Fill in the window with the desired parameters <br>
 
 <!-- Screenshots -->
 <details align="center">
- <summary>Installation</summary>
+<summary>screenshots</summary>
+<p align="left">
 
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif" width="500">\
 
 <img src"https://kui.is-freaky.lol/08O1M.png" width="500">\
 
 <img src"https://kui.is-freaky.lol/0Bnoj.png" width="500">\
- </details>
+
+</p>
+
+</details>
 
 <!-- Code -->
 <details align="center">
