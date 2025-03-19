@@ -16,7 +16,7 @@
 <details align="center">
  <summary>Installation</summary>
     
- <p align="left">
+ <p align="center">
   
  &nbsp; 
  ### Step one
@@ -66,6 +66,23 @@ Fill in the window with the desired parameters <br>
  
 </details>
 
+<!-- Screenshots -->
+<details align="center">
+<summary>screenshots</summary>
+
+
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif" width="500">\
+test
+&nbsp;
+
+<img src"https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/1K1BP.png" width="500">\
+test
+&nbsp;
+
+<img src"https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/0Bnoj.png" width="500">\
+&nbsp;
+
+</details>
 
 <!-- Code -->
 <details align="center">
