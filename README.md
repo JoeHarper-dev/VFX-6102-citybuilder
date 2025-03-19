@@ -72,7 +72,7 @@ Fill in the window with the desired parameters <br>
 
  
  &nbsp; 
- <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/tut01.png?raw=true" width="500">\
+ <img src="http://i.guns.lol/QlGYp.gif" width="500">\
  &nbsp; 
  ## 
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/installation/step02.png?raw=true" width="500">\
