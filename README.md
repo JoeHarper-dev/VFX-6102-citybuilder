@@ -70,7 +70,7 @@ Fill in the window with the desired parameters <br>
 <details align="center">
  <summary>Installation</summary>
 
-<img src="https://images.guns.lol/QlGYp.gif" width="500">\
+<img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif" width="500">\
 
 <img src"https://kui.is-freaky.lol/08O1M.png" width="500">\
 
