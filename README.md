@@ -66,12 +66,14 @@ Fill in the window with the desired parameters <br>
  
 </details>
 
-<!-- Installation -->
+<!-- Screenshots -->
 <details align="center">
  <summary>Installation</summary>
 
 <img src="https://images.guns.lol/QlGYp.gif" width="500">\
+
 <img src"https://kui.is-freaky.lol/08O1M.png" width="500">\
+
 <img src"https://kui.is-freaky.lol/0Bnoj.png" width="500">\
  </details>
 
