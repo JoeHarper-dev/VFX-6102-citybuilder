@@ -69,7 +69,7 @@ Fill in the window with the desired parameters <br>
 <!-- Screenshots -->
 <details align="center">
 <summary>screenshots</summary>
-<p align="left">
+
 
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif" width="500">\
 test
@@ -81,7 +81,6 @@ test
 
 <img src"https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/0Bnoj.png" width="500">\
 &nbsp;
-</p>
 
 </details>
 
