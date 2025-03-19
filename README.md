@@ -88,7 +88,7 @@ test
 <details align="center">
 <summary>Code</summary>
 
-<div>
+<div align="center">
  
 ```python
 from re import X
