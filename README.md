@@ -51,6 +51,7 @@
 <details align="center">
 <summary>Usage</summary>
 
+
 ### Step One
 <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/Usage/usageOne.png?raw=true" width="500">\
 Press the tool from the tool shelf <br>
@@ -64,6 +65,15 @@ Fill in the window with the desired parameters <br>
 ##
  
 </details>
+
+<!-- Installation -->
+<details align="center">
+ <summary>Installation</summary>
+
+<img src="https://images.guns.lol/QlGYp.gif" width="500">\
+<img src"https://kui.is-freaky.lol/08O1M.png" width="500">\
+<img src"https://kui.is-freaky.lol/0Bnoj.png" width="500">\
+ </details>
 
 <!-- Code -->
 <details align="center">
