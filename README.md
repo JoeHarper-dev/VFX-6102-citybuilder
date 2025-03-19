@@ -89,7 +89,7 @@ test
 <details align="center">
 <summary>Code</summary>
 
-<div align="left">
+<div>
  
 ```python
 from re import X
