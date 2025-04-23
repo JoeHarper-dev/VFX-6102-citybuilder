@@ -1,4 +1,3 @@
-from re import X
 #-----------------------------------------------------------------------------------------------#
 #         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                      #
 #        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.        #
@@ -11,15 +10,19 @@ from re import X
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
+from PySide2.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 import hou
 import json
 import os
 import random
+from re import X
 
 
 class cityBuilder(QtWidgets.QWidget):
     def __init__(self, parent=None):
 
+
+#Front end
 #------------------------------------------------------------------------------------------------------------------
 # Creating the Vertical Layout
 
@@ -155,6 +158,8 @@ class cityBuilder(QtWidgets.QWidget):
         self.savePresetBtn = QtWidgets.QPushButton('Save Preset', self)
         hboxPresets.addWidget(self.loadPresetBtn)
         hboxPresets.addWidget(self.savePresetBtn)
+        self.loadPresetBtn.clicked.connect(self.loadPreset)
+        self.savePresetBtn.clicked.connect(self.savePreset)
         self.vBox.addLayout(hboxPresets)
 
 
@@ -193,15 +198,80 @@ class cityBuilder(QtWidgets.QWidget):
     def stateHasChangedSnapObj(self):
         snapObj = self.DdlSnap
 
-    def stateHasChangedLoadPreset(self):
-        loadPreset = self.loadPresetBtn
 
-    def stateHasChangedSavePreset(self):
-        savePreset =  self.SavePresetBtn
+#-------------------------------------------------------------------------------------------------------------------
+#load Preset|I
+    def loadPreset(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        loadFileName, _ = QFileDialog.getOpenFileName(self,
+            "Load Preset", 
+            "","JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)", 
+            options=options)
+        if loadFileName:
+            try:
+                with open(loadFileName, 'r') as f:
+                    preset_data = json.load(f)
+                
+                self.textInputBuildingDensity.setText(preset_data.get("buildingDensity", ""))
+                self.textInputMaxFloors.setText(preset_data.get("maxFloors", ""))
+                self.TextInputMinFloors.setText(preset_data.get("minFloors", ""))
+                self.textInputLocationX.setText(preset_data.get("locationX", ""))
+                self.textInputLocationY.setText(preset_data.get("locationY", ""))
+                self.textInputLocationZ.setText(preset_data.get("locationZ", ""))
+
+                print(f"Preset loaded successfully from: {loadFileName}")
+
+            except FileNotFoundError:
+                print(f"Error: File not found - {loadFileName}")
+            except json.JSONDecodeError:
+                print(f"Error: Could not decode JSON from file - {loadFileName}")
+            except Exception as e:
+                print(f"An unexpected error occurred during loading: {e}")
+
+
+#-------------------------------------------------------------------------------------------------------------------
+#Save Preset
+    def savePreset(self):
+        self.loadFileNameDialog()
+
+    def loadFileNameDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        saveFileName, _ = QFileDialog.getSaveFileName(self,
+            "Save Preset",
+            "cityBuilder-Preset","JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)",
+            options=options)
+        if saveFileName:
+            print(saveFileName)
+            
+        if saveFileName:
+            if not saveFileName.lower().endswith('.json'):
+                saveFileName += '.json'
+
+            preset_data = {
+                "buildingDensity": self.textInputBuildingDensity.text(),
+                "maxFloors": self.textInputMaxFloors.text(),
+                "minFloors": self.TextInputMinFloors.text(),
+                "locationX": self.textInputLocationX.text(),
+                "locationY": self.textInputLocationY.text(),
+                "locationZ": self.textInputLocationZ.text(),
+                "snapObject": self.DdlSnap.currentText()
+            }
+
+            try:
+                with open(saveFileName, 'w') as f:
+                    json.dump(preset_data, f, indent=4)
+                print(f"Preset saved successfully to: {saveFileName}")
+
+            except IOError as e:
+                 print(f"Error: Could not write to file - {saveFileName}.")
+            except Exception as e:
+                print(f"An unexpected error occurred during saving")
 
     def buildProject(self):
 #-------------------------------------------------------------------------------------------------------------------
-#Main Function
+#Back end
             
         #Variables
 
@@ -215,7 +285,6 @@ class cityBuilder(QtWidgets.QWidget):
         loadPreset = self.loadPresetBtn
         savePreset =  self.savePresetBtn
         timesran = 0
-        timesran2 = 0
         lowerFloorHeight = 2.7
         heigherFloorHeight = 3.5
             
@@ -229,12 +298,12 @@ class cityBuilder(QtWidgets.QWidget):
 
 
         for i in range(int(buildingDensity)):
-            f'lowerTranslateX{timesran2}' == random.randint(-100, 100)
-            f'lowerTranslateZ{timesran2}'  == random.randint(-100, 100)
-            f'translate{timesran2}' == [f'lowerTranslateX{timesran2}', f'lowerTranslateZ{timesran2}']
+            lowerTranslateX = random.randint(-100, 100)
+            lowerTranslateZ  = random.randint(-100, 100)
 
 
 
+            timesran += 1
             box = mySub.createNode("box", f'building{timesran}')
             transform = mySub.createNode("xform", f'tranform{timesran}')
             transform.setInput(0, box)
@@ -258,21 +327,9 @@ class cityBuilder(QtWidgets.QWidget):
             boxWidthZ.set(random.randint(8, 12))
 
             merge.setInput(timesran, transform)
-            box.setInput(0, mySub.indirectInFputs()[0])
+            box.setInput(0, mySub.indirectInputs()[0])
             print("test")
             print(randomFloors)
-
-
- #Collision detection          
-            buildingLoop = 1
-            while buildingLoop > timesran:
-                buildingLoop + 1              
-                for i in range(int(timesran)):
-                        timesran2 -= 1
-                        if abs(f'lowerTranslateX{timesran2}' - f'lowerTranslateX{timesran}') >= 5 and abs(f'lowerTranslateZ{timesran2}' - f'lowerTranslateZ{timesran}') >= 5:
-                                break
-                                buildingLoop = 1
-
 
 dialog = cityBuilder()
 dialog.show()
@@ -285,5 +342,4 @@ dialog.show()
  _ | |   | || | 
 | || | _ | __ | 
  \__/ (_)|_||_| 
-https://youtube.com/shorts/uWEIaF0PNGg?si=Yig-ik7Gy1xqwdkh
-'''            
+'''              
