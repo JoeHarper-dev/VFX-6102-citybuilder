@@ -72,7 +72,7 @@ Fill in the window with the desired parameters <br>
 
  
  &nbsp; 
- ## https://vimeo.com/manage/videos/1083511970/2db81c0c89
+ # https://vimeo.com/1083511970/2db81c0c89?share=copy
   &nbsp; 
  ## 
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif?raw=true" width="1000">\
