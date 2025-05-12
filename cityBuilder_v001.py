@@ -1,16 +1,22 @@
-#-----------------------------------------------------------------------------------------------#
-#         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                      #
-#        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.        #
-#        |  |    ,--.'-.  .-' \  '  /     |  .-.  \|  ||  |,--.|  |' .-. || .-. :|  .--'        #
-#        '  '--'\|  |  |  |    \   '      |  '--' /'  ''  '|  ||  |\ `-' |\   --.|  |           #
-#         `-----'`--'  `--'  .-'  /       `------'  `----' `--'`--' `---'  `----'`--'           #
-#                            `---'                                                              #
-#-----------------------------------------------------------------------------------------------#
+# -----------------------------------------------------------------------------------------------#
+#         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                                                #
+#        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.                               #
+#        |  |    ,--.'-.  .-' \  '  /     |  .-.  \|  ||  |,--.|  |' .-. || .-. :|  .--'                                    #
+#        '  '--'\|  |  |  |    \   '      |  '--' /'  ''  '|  ||  |\ `-' |\   --.|  |                                         #
+#         `-----'`--'  `--'  .-'  /       `------'  `----' `--'`--' `---'  `----'`--'                               #
+#                            `---'                                                                                              #
+# -----------------------------------------------------------------------------------------------#
 
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
-from PySide2.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PySide2.QtWidgets import (
+    QApplication,
+    QWidget,
+    QInputDialog,
+    QLineEdit,
+    QFileDialog,
+)
 import hou
 import json
 import os
@@ -18,322 +24,377 @@ import random
 from re import X
 
 
-class cityBuilder(QtWidgets.QWidget):
+class CityBuilder(QtWidgets.QWidget):
     def __init__(self, parent=None):
 
-
-#Front end
-#------------------------------------------------------------------------------------------------------------------
-# Creating the Vertical Layout
+        # front end
+        # ------------------------------------------------------------------------------------------------------------------
+        # creating the vertical layout
 
         QtWidgets.QWidget.__init__(self, parent)
-        self.setWindowTitle('City Builder')
+        self.setWindowTitle("City Builder")
         self.vBox = QtWidgets.QVBoxLayout()
 
-#------------------------------------------------------------------------------------------------------------------
-# Creating the widgets in the UI starting with Building Density
+        # ------------------------------------------------------------------------------------------------------------------
+        # creating the widgets in the UI starting with building density
 
+        # label
+        hbox_building_density = QtWidgets.QHBoxLayout()
+        self.label_building_density = QtWidgets.QLabel(
+            "number of buildings"
+        )
+        self.label_building_density.setMinimumWidth(175)
+        hbox_building_density.addWidget(self.label_building_density)
+
+        # text box
+
+        self.text_input_building_density = QtWidgets.QLineEdit(self)
+        self.text_input_building_density.setMinimumWidth(175)
+        hbox_building_density.addWidget(self.text_input_building_density)
+        self.vBox.addLayout(hbox_building_density)
+
+        # ------------------------------------------------------------------------------------------------------------------
+        # max floors
+
+        # label
+        hbox_max_floors = QtWidgets.QHBoxLayout()
+        self.label_max_floors = QtWidgets.QLabel(
+            "maximum ammount of floors"
+        )
+        self.label_max_floors.setMinimumWidth(175)
+        hbox_max_floors.addWidget(self.label_max_floors)
+
+        # text box
+
+        self.text_input_max_floors = QtWidgets.QLineEdit(self)
+        self.text_input_max_floors.setMinimumWidth(175)
+        hbox_max_floors.addWidget(self.text_input_max_floors)
+        self.vBox.addLayout(hbox_max_floors)
+
+        # ------------------------------------------------------------------------------------------------------------------
+        # min floors
+
+        # label
+        hbox_min_floors = QtWidgets.QHBoxLayout()
+        self.label_min_floors = QtWidgets.QLabel(
+            "minimum ammount of floors"
+        )
+        self.label_min_floors.setMinimumWidth(175)
+        hbox_min_floors.addWidget(self.label_min_floors)
+
+        # text box
+        self.text_input_min_floors = QtWidgets.QLineEdit(self)
+        self.text_input_min_floors.setMinimumWidth(175)
+        hbox_min_floors.addWidget(self.text_input_min_floors)
+        self.vBox.addLayout(hbox_min_floors)
+
+        # ------------------------------------------------------------------------------------------------------------------
+        # location
+
+        # label
+        hbox_location = QtWidgets.QHBoxLayout()
+        self.label_location = QtWidgets.QLabel(
+            "city coordinates"
+        )
+        self.label_location.setMinimumWidth(175)
+        hbox_location.addWidget(self.label_location)
+
+        # X location
+        self.text_input_location_X = QtWidgets.QLineEdit(self)
+        self.text_input_location_X.setMinimumWidth(50)
+
+        # Y Location
+        self.text_input_location_Y = QtWidgets.QLineEdit(self)
+        self.text_input_location_Y.setMinimumWidth(50)
+
+        # Z Location
+        self.text_input_location_Z = QtWidgets.QLineEdit(self)
+        self.text_input_location_Z.setMinimumWidth(50)
+
+        hbox_location.addWidget(self.text_input_location_X)
+        hbox_location.addWidget(self.text_input_location_Y)
+        hbox_location.addWidget(self.text_input_location_Z)
+        self.vBox.addLayout(hbox_location)
+
+        # ------------------------------------------------------------------------------------------------------------------
+        # snap to ground
 # Label
-        hboxBuildingDensity = QtWidgets.QHBoxLayout()
-        self.labelBuildingDensity = QtWidgets.QLabel(
-            'How many buildings would you like'
-            )
-        self.labelBuildingDensity.setMinimumWidth(175)
-        hboxBuildingDensity.addWidget(self.labelBuildingDensity)
-
-# Text box
-
-        self.textInputBuildingDensity = QtWidgets.QLineEdit(self)
-        self.textInputBuildingDensity.setMinimumWidth(175)
-        hboxBuildingDensity.addWidget(self.textInputBuildingDensity)
-        self.vBox.addLayout(hboxBuildingDensity)
-
-#------------------------------------------------------------------------------------------------------------------
-# Max Floors
-
-# Label
-        hboxMaxFloors = QtWidgets.QHBoxLayout()
-        self.labelMaxFloors = QtWidgets.QLabel(
-            'whats the maximum ammount of floors for a building'
-            )
-        self.labelMaxFloors.setMinimumWidth(175)
-        hboxMaxFloors.addWidget(self.labelMaxFloors)
-
-# Text Box
-
-        self.textInputMaxFloors = QtWidgets.QLineEdit(self)
-        self.textInputMaxFloors.setMinimumWidth(175)
-        hboxMaxFloors.addWidget(self.textInputMaxFloors)
-        self.vBox.addLayout(hboxMaxFloors)
-
-#------------------------------------------------------------------------------------------------------------------
-# Min Floors
-
-# Label
-        hboxMinFloors = QtWidgets.QHBoxLayout()
-        self.labelMinFloors = QtWidgets.QLabel(
-            'what are the minimum ammount of floors for a building'
-            )
-        self.labelMinFloors.setMinimumWidth(175)
-        hboxMinFloors.addWidget(self.labelMinFloors)
-
-# Text Box
-
-        self.TextInputMinFloors = QtWidgets.QLineEdit(self)
-        self.TextInputMinFloors.setMinimumWidth(175)
-        hboxMinFloors.addWidget(self.TextInputMinFloors)
-        self.vBox.addLayout(hboxMinFloors)
-
-#------------------------------------------------------------------------------------------------------------------
-# Location
-
-# Label
-        hboxLocation = QtWidgets.QHBoxLayout()
-        self.LabelLocation = QtWidgets.QLabel(
-            'where would you like to placce the city'
-            )
-        self.LabelLocation.setMinimumWidth(175)
-        hboxLocation.addWidget(self.LabelLocation)
-
-# X location
-        self.textInputLocationX = QtWidgets.QLineEdit(self)
-        self.textInputLocationX.setMinimumWidth(50)
-
-# Y Location
-        self.textInputLocationY = QtWidgets.QLineEdit(self)
-        self.textInputLocationY.setMinimumWidth(50)
-
-# Z Location
-        self.textInputLocationZ = QtWidgets.QLineEdit(self)
-        self.textInputLocationZ.setMinimumWidth(50)
-        
-        hboxLocation.addWidget(self.textInputLocationX)
-        hboxLocation.addWidget(self.textInputLocationY)
-        hboxLocation.addWidget(self.textInputLocationZ)
-        self.vBox.addLayout(hboxLocation)
-
-#------------------------------------------------------------------------------------------------------------------
-# Snap to ground
         '''
-# Label
-        
-        hboxSnap = QtWidgets.QHBoxLayout()
-        self.LabelSnap = QtWidgets.QLabel(
-            'snap to ground?'
+        hbox_snap = QtWidgets.QHBoxLayout()
+        self.label_snap = QtWidgets.QLabel(
+            "snap to ground?"
             )
-        self.LabelSnap.setMinimumWidth(25)
-        hboxSnap.addWidget(self.LabelSnap)
+        self.label_snap.setMinimumWidth(25)
+        hbox_snap.addWidget(self.label_snap)
 
 #check box
-        self.checkBoxSnap = QtWidgets.QCheckBox()
-        self.checkBoxSnap.setMinimumWidth(25)
-        hboxSnap.addWidget(self.checkBoxSnap)
-        self.vBox.addLayout(hboxSnap)     
-        '''   
-
+        self.check_box_snap = QtWidgets.QCheckBox()
+        self.check_box_snap.setMinimumWidth(25)
+        hbox_snap.addWidget(self.check_box_snap)
+        self.vBox.addLayout(hbox_snap)     
+   
 #label
-        hboxSnapMenu = QtWidgets.QHBoxLayout()
-        self.ddlLabel = QtWidgets.QLabel(
-            'object to snap to'
+        hbox_snap_menu = QtWidgets.QHBoxLayout()
+        self.ddl_label = QtWidgets.QLabel(
+            "object to snap to"
         )
-        self.ddlLabel.setMinimumWidth(175)
-        hboxSnapMenu.addWidget(self.ddlLabel)
+        self.ddl_label.setMinimumWidth(175)
+        hbox_snap_menu.addWidget(self.ddl_label)
         
 #drop down
-        self.DdlSnap = QtWidgets.QComboBox()
-        self.DdlSnap.addItem('None')
-        self.DdlSnap.addItem('One')
-        self.DdlSnap.addItem('two')
-        self.DdlSnap.setMinimumWidth(175)
-        hboxSnapMenu.addWidget(self.DdlSnap)
-        self.vBox.addLayout(hboxSnapMenu)
+        self.dd_snap = QtWidgets.QComboBox()
+        self.dd_snap.addItem("None")
+        self.dd_snap.addItem("One")
+        self.dd_snap.addItem("two")
+        self.dd_snap.setMinimumWidth(175)
+        hbox_snap_menu.addWidget(self.dd_snap)
+        self.vBox.addLayout(hbox_snap_menu)
 
+        '''
+        # -------------------------------------------------------------------------------------------------------------------
+        # display stats
+        
+        # label
+        hbox_stats = QtWidgets.QHBoxLayout()
+        self.label_stats = QtWidgets.QLabel(
+            "display stats?"
+            )
+        self.label_stats.setMinimumWidth(25)
+        hbox_stats.addWidget(self.label_stats)
 
-#------------------------------------------------------------------------------------------------------------------
-#Presets
+        # check box
+        self.check_box_stats = QtWidgets.QCheckBox()
+        self.check_box_stats.setMinimumWidth(25)
+        hbox_stats.addWidget(self.check_box_stats)
+        self.vBox.addLayout(hbox_stats)     
+        # ------------------------------------------------------------------------------------------------------------------
+        # presets
 
-#buttons
-        hboxPresets = QtWidgets.QHBoxLayout()
-        self.loadPresetBtn = QtWidgets.QPushButton('Load Preset', self)
-        self.savePresetBtn = QtWidgets.QPushButton('Save Preset', self)
-        hboxPresets.addWidget(self.loadPresetBtn)
-        hboxPresets.addWidget(self.savePresetBtn)
-        self.loadPresetBtn.clicked.connect(self.loadPreset)
-        self.savePresetBtn.clicked.connect(self.savePreset)
-        self.vBox.addLayout(hboxPresets)
+        # buttons
+        hbox_presets = QtWidgets.QHBoxLayout()
+        self.load_preset_btn = QtWidgets.QPushButton("Load Preset", self)
+        self.save_preset_btn = QtWidgets.QPushButton("Save Preset", self)
+        hbox_presets.addWidget(self.load_preset_btn)
+        hbox_presets.addWidget(self.save_preset_btn)
+        self.load_preset_btn.clicked.connect(self.load_preset)
+        self.save_preset_btn.clicked.connect(self.save_preset)
+        self.vBox.addLayout(hbox_presets)
 
+        # -------------------------------------------------------------------------------------------------------------------
+        # placeholders
 
-#-------------------------------------------------------------------------------------------------------------------
-#BuildProject
+        self.text_input_building_density.setPlaceholderText(
+            "100"
+        )
+        self.text_input_max_floors.setPlaceholderText(
+            "50"
+        )
+        self.text_input_min_floors.setPlaceholderText(
+            "25"
+        )
+        self.text_input_location_X.setPlaceholderText(
+            "0"
+        )
+        self.text_input_location_Y.setPlaceholderText(
+            "0"
+        )
+        self.text_input_location_Z.setPlaceholderText(
+            "0"
+        )
 
-        hboxBuildProject = QtWidgets.QHBoxLayout()
-        self.buildProjectBtn = QtWidgets.QPushButton("Build", self)
-        self.buildProjectBtn.clicked.connect(self.buildProject)
-        hboxBuildProject.addWidget(self.buildProjectBtn)
-        self.vBox.addLayout(hboxBuildProject)
+        # -------------------------------------------------------------------------------------------------------------------
+        # build project
+        hbox_build_project = QtWidgets.QHBoxLayout()
+        self.build_project_btn = QtWidgets.QPushButton("Build", self)
+        self.build_project_btn.clicked.connect(self.build_project)
+        hbox_build_project.addWidget(self.build_project_btn)
+        self.vBox.addLayout(hbox_build_project)
 
+        
 
-#-------------------------------------------------------------------------------------------------------------------
-#Defines
+        # -------------------------------------------------------------------------------------------------------------------
+        # set layout
         self.setLayout(self.vBox)
 
-    def textHasChangedBuildingDensity(self):
-        buildingDensity = self.textInputBuildingDensity.text()
-
-    def textHasChangedMaxFloors(self):
-        maxFloors = self.textInputMaxFloors.text()
-
-    def textHasChangedMinFloors(self):
-        minFloors = self.TextInputMinFloors.text()
-
-    def textHasChangedLocationX(self):
-        locationX = self.textInputLocationX.text()
-
-    def textHasChangedLocationY(self):
-        locationY = self.textInputLocationY.text()
-
-    def textHasChangedLocationZ(self):
-        locationZ = self.textInputLocationZ.text()
-    
-    def stateHasChangedSnapObj(self):
-        snapObj = self.DdlSnap
-
-
-#-------------------------------------------------------------------------------------------------------------------
-#load Preset|I
-    def loadPreset(self):
+    # -------------------------------------------------------------------------------------------------------------------
+    # load preset
+    def load_preset(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        loadFileName, _ = QFileDialog.getOpenFileName(self,
-            "Load Preset", 
-            "","JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)", 
-            options=options)
-        if loadFileName:
-            try:
-                with open(loadFileName, 'r') as f:
+        load_file_name, _ = QFileDialog.getOpenFileName(
+            self,
+            "Load Preset",
+            "",
+            "JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)",
+            options=options,
+        )
+        if load_file_name:
+                with open(load_file_name, "r") as f:
                     preset_data = json.load(f)
-                
-                self.textInputBuildingDensity.setText(preset_data.get("buildingDensity", ""))
-                self.textInputMaxFloors.setText(preset_data.get("maxFloors", ""))
-                self.TextInputMinFloors.setText(preset_data.get("minFloors", ""))
-                self.textInputLocationX.setText(preset_data.get("locationX", ""))
-                self.textInputLocationY.setText(preset_data.get("locationY", ""))
-                self.textInputLocationZ.setText(preset_data.get("locationZ", ""))
 
-                print(f"Preset loaded successfully from: {loadFileName}")
+                self.text_input_building_density.setText(
+                    preset_data.get("building_density", "")
+                )
+                self.text_input_max_floors.setText(
+                    preset_data.get("max_floors", "")
+                )
+                self.text_input_min_floors.setText(
+                    preset_data.get("min_floors", "")
+                )
+                self.text_input_location_X.setText(
+                    preset_data.get("location_X", "")
+                )
+                self.text_input_location_Y.setText(
+                    preset_data.get("location_Y", "")
+                )
+                self.text_input_location_Z.setText(
+                    preset_data.get("location_Z", "")
+                )
 
-            except FileNotFoundError:
-                print(f"Error: File not found - {loadFileName}")
-            except json.JSONDecodeError:
-                print(f"Error: Could not decode JSON from file - {loadFileName}")
-            except Exception as e:
-                print(f"An unexpected error occurred during loading: {e}")
+                print(f"Preset loaded successfully from: {load_file_name}")
 
 
-#-------------------------------------------------------------------------------------------------------------------
-#Save Preset
-    def savePreset(self):
-        self.loadFileNameDialog()
+    # -------------------------------------------------------------------------------------------------------------------
+    # save Preset
+    def save_preset(self):
+        self.load_file_nameDialog()
 
-    def loadFileNameDialog(self):
+    def load_file_nameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        saveFileName, _ = QFileDialog.getSaveFileName(self,
+        save_file_name, _ = QFileDialog.getSaveFileName(
+            self,
             "Save Preset",
-            "cityBuilder-Preset","JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)",
-            options=options)
-        if saveFileName:
-            print(saveFileName)
-            
-        if saveFileName:
-            if not saveFileName.lower().endswith('.json'):
-                saveFileName += '.json'
+            "City_Builder-Preset",
+            "JSON Files (*.json);;YAML Files (*.yaml);; All Files (*)",
+            options=options,
+        )
+        if save_file_name:
+            print(save_file_name)
+
+        if save_file_name:
+            if not save_file_name.lower().endswith(".json"):
+                save_file_name += ".json"
 
             preset_data = {
-                "buildingDensity": self.textInputBuildingDensity.text(),
-                "maxFloors": self.textInputMaxFloors.text(),
-                "minFloors": self.TextInputMinFloors.text(),
-                "locationX": self.textInputLocationX.text(),
-                "locationY": self.textInputLocationY.text(),
-                "locationZ": self.textInputLocationZ.text(),
-                "snapObject": self.DdlSnap.currentText()
+                "building_density": self.text_input_building_density.text(),
+                "max_floors": self.text_input_max_floors.text(),
+                "min_floors": self.text_input_min_floors.text(),
+                "location_X": self.text_input_location_X.text(),
+                "location_Y": self.text_input_location_Y.text(),
+                "location_Z": self.text_input_location_Z.text(),
             }
 
-            try:
-                with open(saveFileName, 'w') as f:
-                    json.dump(preset_data, f, indent=4)
-                print(f"Preset saved successfully to: {saveFileName}")
-
-            except IOError as e:
-                 print(f"Error: Could not write to file - {saveFileName}.")
-            except Exception as e:
-                print(f"An unexpected error occurred during saving")
-
-    def buildProject(self):
-#-------------------------------------------------------------------------------------------------------------------
-#Back end
-            
-        #Variables
-
-        buildingDensity = self.textInputBuildingDensity.text()
-        maxFloors = self.textInputMaxFloors.text()
-        minFloors = self.TextInputMinFloors.text()
-        locationX = self.textInputLocationX.text()
-        locationY = self.textInputLocationY.text()
-        locationZ = self.textInputLocationZ.text()
-        snapObj = self.DdlSnap
-        loadPreset = self.loadPresetBtn
-        savePreset =  self.savePresetBtn
-        timesran = 0
-        lowerFloorHeight = 2.7
-        heigherFloorHeight = 3.5
-            
-        myObj = hou.node('/obj')
-        geo = myObj.createNode("geo", 'city')
-        myGeo = hou.node('/obj/city')
-        subnet = myGeo.createNode("subnet", 'city')
-        mySub = hou.node('/obj/city/city')
-        merge = mySub.createNode("merge", 'merge1')
+            with open(save_file_name, "w") as f:
+                json.dump(preset_data, f, indent=4)
+            print(f"Preset saved successfully to: {save_file_name}")
 
 
+    def build_project(self):
+        # -------------------------------------------------------------------------------------------------------------------
+        # back end
 
-        for i in range(int(buildingDensity)):
-            lowerTranslateX = random.randint(-100, 100)
-            lowerTranslateZ  = random.randint(-100, 100)
+        # variable
+        building_density = int(self.text_input_building_density.text())
+        max_floors = int(self.text_input_max_floors.text())
+        min_floors = int(self.text_input_min_floors.text())
+        location_X = int(self.text_input_location_X.text())
+        location_Y = int(self.text_input_location_Y.text())
+        location_Z = int(self.text_input_location_Z.text())
+        times_ran = 0
+        lower_floor_height = 2.7
+        higher_floor_height = 3.5
+        placed_buildings = []
 
+        # locations
+        my_obj = hou.node("/obj")
+        geo = my_obj.createNode("geo", "city")
+        my_geo = hou.node("/obj/city")
+        subnet = my_geo.createNode("subnet", "city")
+        my_sub = hou.node("/obj/city/city")
+        merge = my_sub.createNode("merge", "merge1")
 
+        # collision detection Function
+        def collision_detection(new_min_x, new_max_x, new_min_z, new_max_z):
+            for min_x, max_x, min_z, max_z in placed_buildings:
+                if (
+                    new_min_x < max_x
+                    and new_max_x > min_x
+                    and new_min_z < max_z
+                    and new_max_z > min_z
+                ):
+                    return True
+            return False
 
-            timesran += 1
-            box = mySub.createNode("box", f'building{timesran}')
-            transform = mySub.createNode("xform", f'tranform{timesran}')
+        for i in range(int(building_density)):
+
+        # collision detection check
+            for i in range(100):
+                width_X = random.randint(8, 12)
+                width_Z = random.randint(8, 12)
+                lower_translate_X = random.randint(-100, 100)
+                lower_translate_Z = random.randint(-100, 100)
+                min_x = location_X + lower_translate_X - width_X / 2
+                max_x = location_X + lower_translate_X + width_X / 2
+                min_z = location_Z + lower_translate_Z - width_Z / 2
+                max_z = location_Z + lower_translate_Z + width_Z / 2
+
+                # Fix collision
+                if not collision_detection(min_x, max_x, min_z, max_z):
+                    placed_buildings.append(
+                        (min_x, max_x, min_z, max_z)
+                    )
+                    break
+                else:
+                    continue
+
+            # object creation
+            times_ran += 1
+            box = my_sub.createNode("box", f"building{times_ran}")
+            transform = my_sub.createNode("xform", f"tranform{times_ran}")
             transform.setInput(0, box)
-            randomFloors = random.randint((int(minFloors)), (int(maxFloors)))
-            randomFloorHeight = random.uniform(lowerFloorHeight, heigherFloorHeight)
-            boxHeight = randomFloorHeight * randomFloors
+            random_floors = random.randint((int(min_floors)), (int(max_floors)))
+            random_floor_height = random.uniform(
+                lower_floor_height, higher_floor_height
+            )
+            box_height = random_floor_height * random_floors
+
+            # define parameters 
+            box_translate_X = transform.parm("tx")
+            box_translate_Y = transform.parm("ty")
+            box_translate_Z = transform.parm("tz")
+            box_heightY = transform.parm("sy")
+            box_width_X = transform.parm("sx")
+            box_width_Z = transform.parm("sz")#   
+
+            # set parameters
+            box_translate_X.set(int(location_X) + lower_translate_X)
+            box_translate_Z.set(int(location_Y) + lower_translate_Z)
+            box_translate_Y.set(int(location_Y) + (int(box_height) / 2))
+            box_width_X.set(width_X)
+            box_width_Z.set(width_Z)
+            box_heightY.set(box_height)
+
+            merge.setInput(times_ran, transform)
+            box.setInput(0, my_sub.indirectInputs()[0])
+            
+        # Test Features
+        #print("test")                                       
+        #print(random_floors)
+
+        if self.check_box_stats.isChecked():
+            # Display the stats in the console
+            print (times_ran, "buildings created")
+            print("Max Floors:", max_floors)
+            print("Min Floors:", min_floors)
+            print("Location X:", location_X)
+            print("Location Y:", location_Y)
 
 
-            boxTranslateX = transform.parm('tx')
-            boxTranslateY = transform.parm('ty')
-            boxTranslateZ = transform.parm('tz')
-            boxHeightY = transform.parm('sy')
-            boxWidthX = transform.parm('sx')
-            boxWidthZ = transform.parm('sz')
 
-            boxTranslateX.set(int(locationX) + lowerTranslateX)
-            boxTranslateZ.set(int(locationY) + lowerTranslateZ)
-            boxTranslateY.set(int(locationY) + (int(boxHeight)/2))
-            boxHeightY.set(boxHeight)
-            boxWidthX.set(random.randint(8, 12))
-            boxWidthZ.set(random.randint(8, 12))
-
-            merge.setInput(timesran, transform)
-            box.setInput(0, mySub.indirectInputs()[0])
-            print("test")
-            print(randomFloors)
-
-dialog = cityBuilder()
+dialog = CityBuilder()
 dialog.show()
-'''
+"""
              )  
           ( /(  
    (      )\()) 
@@ -342,4 +403,4 @@ dialog.show()
  _ | |   | || | 
 | || | _ | __ | 
  \__/ (_)|_||_| 
-'''              
+"""
