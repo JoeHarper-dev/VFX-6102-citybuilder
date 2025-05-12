@@ -72,7 +72,7 @@ Fill in the window with the desired parameters <br>
 
  
  &nbsp; 
- <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp1-ezgif.com-gif-to-mp4-converter (1).mp4?raw=true" width="1000">\
+ <img src="https://github.com/JoeHarper-dev/VFX-6102-citybuilder/raw/refs/heads/main/pictures/ScriptWorking.mp4" width="1000">\
  &nbsp; 
  ## 
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/1K1BP.png?raw=true" width="1000">\
