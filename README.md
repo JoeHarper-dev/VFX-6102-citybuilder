@@ -72,7 +72,10 @@ Fill in the window with the desired parameters <br>
 
  
  &nbsp; 
- <iframe src="https://player.vimeo.com/video/1083511970?h=2db81c0c89&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="2389" height="1000" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="ScriptWorking"></iframe>
+ ## https://vimeo.com/manage/videos/1083511970/2db81c0c89
+  &nbsp; 
+ ## 
+ <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/QlGYp.gif?raw=true" width="1000">\
  &nbsp; 
  ## 
  <img src="https://github.com/kuisux/VFX-6102-citybuilder/blob/main/pictures/1K1BP.png?raw=true" width="1000">\
