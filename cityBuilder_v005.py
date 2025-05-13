@@ -6,7 +6,9 @@
 #         `-----'`--'  `--'  .-'  /       `------'  `----' `--'`--' `---'  `----'`--'            #
 #                            `---'                                                               #
 # -----------------------------------------------------------------------------------------------#
-
+#         https://github.com/JoeHarper-dev/VFX-6102-citybuilder?tab=CC0-1.0-1-ov-file            #
+#                                  Created by Joe Harper                                         #
+# -----------------------------------------------------------------------------------------------#
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -124,41 +126,6 @@ class CityBuilder(QtWidgets.QWidget):
         hbox_location.addWidget(self.text_input_location_Z)
         self.vBox.addLayout(hbox_location)
 
-        # ------------------------------------------------------------------------------------------------------------------
-        # snap to ground
-# Label
-        '''
-        hbox_snap = QtWidgets.QHBoxLayout()
-        self.label_snap = QtWidgets.QLabel(
-            "snap to ground?"
-            )
-        self.label_snap.setMinimumWidth(25)
-        hbox_snap.addWidget(self.label_snap)
-
-#check box
-        self.check_box_snap = QtWidgets.QCheckBox()
-        self.check_box_snap.setMinimumWidth(25)
-        hbox_snap.addWidget(self.check_box_snap)
-        self.vBox.addLayout(hbox_snap)     
-   
-#label
-        hbox_snap_menu = QtWidgets.QHBoxLayout()
-        self.ddl_label = QtWidgets.QLabel(
-            "object to snap to"
-        )
-        self.ddl_label.setMinimumWidth(175)
-        hbox_snap_menu.addWidget(self.ddl_label)
-        
-#drop down
-        self.dd_snap = QtWidgets.QComboBox()
-        self.dd_snap.addItem("None")
-        self.dd_snap.addItem("One")
-        self.dd_snap.addItem("two")
-        self.dd_snap.setMinimumWidth(175)
-        hbox_snap_menu.addWidget(self.dd_snap)
-        self.vBox.addLayout(hbox_snap_menu)
-
-        '''
         # -------------------------------------------------------------------------------------------------------------------
         # display stats
         
@@ -377,10 +344,6 @@ class CityBuilder(QtWidgets.QWidget):
 
             MERGE.setInput(times_ran, transform)
             box.setInput(0, MY_SUB.indirectInputs()[0])
-            
-        # Test Features
-        #print("test")                                       
-        #print(random_floors)
 
         if self.check_box_stats.isChecked():
             # Display the stats in the console
@@ -394,13 +357,8 @@ class CityBuilder(QtWidgets.QWidget):
 
 dialog = CityBuilder()
 dialog.show()
+
 """
-             )  
-          ( /(  
-   (      )\()) 
-   )\    ((_)\  
-  ((_)    _((_) 
- _ | |   | || | 
-| || | _ | __ | 
- \__/ (_)|_||_| 
+Created by Joe Harper
+CC0-1.0 license
 """
