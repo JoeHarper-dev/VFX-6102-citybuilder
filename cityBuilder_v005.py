@@ -1,10 +1,10 @@
 # -----------------------------------------------------------------------------------------------#
-#         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                                                #
-#        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.                               #
-#        |  |    ,--.'-.  .-' \  '  /     |  .-.  \|  ||  |,--.|  |' .-. || .-. :|  .--'                                    #
-#        '  '--'\|  |  |  |    \   '      |  '--' /'  ''  '|  ||  |\ `-' |\   --.|  |                                         #
-#         `-----'`--'  `--'  .-'  /       `------'  `----' `--'`--' `---'  `----'`--'                               #
-#                            `---'                                                                                              #
+#         ,-----.,--.  ,--.               ,-----.          ,--.,--.   ,--.                       #
+#        '  .--./`--',-'  '-.,--. ,--.    |  |) /_ ,--.,--.`--'|  | ,-|  | ,---. ,--.--.         #
+#        |  |    ,--.'-.  .-' \  '  /     |  .-.  \|  ||  |,--.|  |' .-. || .-. :|  .--'         #
+#        '  '--'\|  |  |  |    \   '      |  '--' /'  ''  '|  ||  |\ `-' |\   --.|  |            #
+#         `-----'`--'  `--'  .-'  /       `------'  `----' `--'`--' `---'  `----'`--'            #
+#                            `---'                                                               #
 # -----------------------------------------------------------------------------------------------#
 
 
@@ -22,6 +22,14 @@ import json
 import os
 import random
 from re import X
+
+# Constants
+MY_OBJ = hou.node("/obj")
+GEO = MY_OBJ.createNode("geo", "city")
+MY_GEO = hou.node("/obj/city")
+SUBNET = MY_GEO.createNode("subnet", "city")
+MY_SUB = hou.node("/obj/city/city")
+MERGE = MY_SUB.createNode("merge", "merge1")
 
 
 class CityBuilder(QtWidgets.QWidget):
@@ -306,14 +314,6 @@ class CityBuilder(QtWidgets.QWidget):
         higher_floor_height = 3.5
         placed_buildings = []
 
-        # locations
-        my_obj = hou.node("/obj")
-        geo = my_obj.createNode("geo", "city")
-        my_geo = hou.node("/obj/city")
-        subnet = my_geo.createNode("subnet", "city")
-        my_sub = hou.node("/obj/city/city")
-        merge = my_sub.createNode("merge", "merge1")
-
         # collision detection Function
         def collision_detection(new_min_x, new_max_x, new_min_z, new_max_z):
             for min_x, max_x, min_z, max_z in placed_buildings:
@@ -350,8 +350,8 @@ class CityBuilder(QtWidgets.QWidget):
 
             # object creation
             times_ran += 1
-            box = my_sub.createNode("box", f"building{times_ran}")
-            transform = my_sub.createNode("xform", f"tranform{times_ran}")
+            box = MY_SUB.createNode("box", f"building{times_ran}")
+            transform = MY_SUB.createNode("xform", f"tranform{times_ran}")
             transform.setInput(0, box)
             random_floors = random.randint((int(min_floors)), (int(max_floors)))
             random_floor_height = random.uniform(
@@ -375,8 +375,8 @@ class CityBuilder(QtWidgets.QWidget):
             box_width_Z.set(width_Z)
             box_heightY.set(box_height)
 
-            merge.setInput(times_ran, transform)
-            box.setInput(0, my_sub.indirectInputs()[0])
+            MERGE.setInput(times_ran, transform)
+            box.setInput(0, MY_SUB.indirectInputs()[0])
             
         # Test Features
         #print("test")                                       
